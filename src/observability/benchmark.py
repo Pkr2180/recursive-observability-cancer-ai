@@ -9,12 +9,32 @@ from typing import Any, Mapping, Sequence
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from cycler import cycler
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 from src.observability.recursive import REQUIRED_TRANSITION_FIELDS, trace_completeness, validate_transition_stream
+
+
+# Nature figure guidance calls for Arial/Helvetica labels, consistent sizing at
+# final reproduction scale, and colour choices that do not depend on red-green
+# discrimination.  These values are applied at the intended single-page width.
+NATURE_COLOURS = ["#0072B2", "#E69F00", "#009E73", "#CC79A7", "#56B4E9", "#D55E00"]
+plt.rcParams.update(
+    {
+        "font.family": "Arial",
+        "font.size": 7,
+        "axes.titlesize": 8,
+        "axes.labelsize": 7,
+        "xtick.labelsize": 6,
+        "ytick.labelsize": 6,
+        "legend.fontsize": 6,
+        "axes.prop_cycle": cycler(color=NATURE_COLOURS),
+        "svg.fonttype": "none",
+    }
+)
 
 
 SYSTEM_FILES = {
@@ -378,17 +398,17 @@ def run_benchmark(input_root: Path, output_root: Path, seed: int = 20260827) -> 
     metric_order = list(detector.values())
     full = pd.DataFrame(baseline_by_system).T[metric_order]
     nonobservable = benchmark[benchmark["severity"] == 1.0].groupby("system")[metric_order].mean()
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(7.1, 2.8), constrained_layout=True)
     full.plot(kind="bar", ax=axes[0], ylim=(0, 1.05), title="Complete architecture")
     nonobservable.plot(kind="bar", ax=axes[1], ylim=(0, 1.05), title="Deliberately non-observable architecture")
     for ax in axes:
         ax.set_ylabel("Condition-specific observability")
         ax.tick_params(axis="x", rotation=15)
-        ax.legend(fontsize=7, frameon=False)
+        ax.legend(fontsize=5.5, frameon=False)
     fig.suptitle("Complete versus disrupted recursive observability", weight="bold")
     _save_figure(fig, figures_dir / "figure_01_complete_vs_nonobservable")
 
-    fig, axes = plt.subplots(2, 3, figsize=(16, 9), constrained_layout=True)
+    fig, axes = plt.subplots(2, 3, figsize=(7.1, 4.2), constrained_layout=True)
     for ax, (disruption, metric) in zip(axes.ravel(), detector.items()):
         for system, subset in benchmark[benchmark["disruption"] == disruption].groupby("system"):
             ax.plot(subset["severity"], subset[metric], marker="o", label=system)
@@ -400,7 +420,7 @@ def run_benchmark(input_root: Path, output_root: Path, seed: int = 20260827) -> 
     fig.suptitle("Dose-response detection of controlled observability failures", weight="bold")
     _save_figure(fig, figures_dir / "figure_02_disruption_dose_response")
 
-    fig, ax = plt.subplots(figsize=(9, 5), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(6.5, 3.7), constrained_layout=True)
     for system, subset in depth_table.groupby("system"):
         ax.plot(subset["observer_depth"], subset["heldout_reconstructability"], marker="o", label=system)
     ax.set_xlabel("Included recursive observer depth")
@@ -409,7 +429,7 @@ def run_benchmark(input_root: Path, output_root: Path, seed: int = 20260827) -> 
     ax.legend(frameon=False)
     _save_figure(fig, figures_dir / "figure_03_recursive_depth_information")
 
-    fig, ax = plt.subplots(figsize=(6, 5), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(5.2, 4.3), constrained_layout=True)
     image = ax.imshow(invariance.to_numpy(), vmin=-1, vmax=1, cmap="coolwarm")
     ax.set_xticks(range(len(invariance)), invariance.columns, rotation=20)
     ax.set_yticks(range(len(invariance)), invariance.index)

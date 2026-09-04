@@ -113,6 +113,13 @@ WHITE = "FFFFFF"
 LIGHT_GRAY = "F4F6F9"
 AMBER = "FFF2CC"
 
+# Nature Machine Intelligence permits standard Word fonts and does not prescribe
+# a coloured submission template.  Use a restrained, reviewer-facing manuscript
+# style: one standard sans-serif family, black type, and generous line spacing.
+MANUSCRIPT_FONT = "Arial"
+BODY_FONT_SIZE = 11
+BODY_LINE_SPACING = 1.5
+
 
 ABSTRACT = (
     "Distributed scientific AI is judged by outputs even when its internal observer states "
@@ -631,10 +638,10 @@ SUPP_TABLES = [
 
 def set_run_font(run, *, size: float | None = None, bold: bool | None = None,
                  italic: bool | None = None, color: str = BLACK) -> None:
-    run.font.name = "Calibri"
+    run.font.name = MANUSCRIPT_FONT
     fonts = run._element.get_or_add_rPr().rFonts
-    fonts.set(qn("w:ascii"), "Calibri")
-    fonts.set(qn("w:hAnsi"), "Calibri")
+    fonts.set(qn("w:ascii"), MANUSCRIPT_FONT)
+    fonts.set(qn("w:hAnsi"), MANUSCRIPT_FONT)
     if size is not None:
         run.font.size = Pt(size)
     if bold is not None:
@@ -671,26 +678,27 @@ def configure_doc(doc: Document, *, header_text: str, supplement: bool = False) 
     section.footer_distance = Inches(0.49)
 
     normal = doc.styles["Normal"]
-    normal.font.name = "Calibri"
-    normal._element.rPr.rFonts.set(qn("w:ascii"), "Calibri")
-    normal._element.rPr.rFonts.set(qn("w:hAnsi"), "Calibri")
-    normal.font.size = Pt(11)
+    normal.font.name = MANUSCRIPT_FONT
+    normal._element.rPr.rFonts.set(qn("w:ascii"), MANUSCRIPT_FONT)
+    normal._element.rPr.rFonts.set(qn("w:hAnsi"), MANUSCRIPT_FONT)
+    normal.font.size = Pt(BODY_FONT_SIZE)
     normal.font.color.rgb = RGBColor.from_string(BLACK)
     pf = normal.paragraph_format
-    pf.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    pf.alignment = WD_ALIGN_PARAGRAPH.LEFT
     pf.space_before = Pt(0)
-    pf.space_after = Pt(8)
-    pf.line_spacing = 1.333
+    pf.space_after = Pt(6)
+    pf.line_spacing = BODY_LINE_SPACING
+    pf.widow_control = True
 
     for name, size, color, before, after in (
-        ("Heading 1", 16, BLUE, 18, 10),
-        ("Heading 2", 13, BLUE, 12, 6),
-        ("Heading 3", 12, DARK_BLUE, 8, 4),
+        ("Heading 1", 14, BLACK, 14, 6),
+        ("Heading 2", 12, BLACK, 10, 4),
+        ("Heading 3", 11, BLACK, 8, 3),
     ):
         style = doc.styles[name]
-        style.font.name = "Calibri"
-        style._element.rPr.rFonts.set(qn("w:ascii"), "Calibri")
-        style._element.rPr.rFonts.set(qn("w:hAnsi"), "Calibri")
+        style.font.name = MANUSCRIPT_FONT
+        style._element.rPr.rFonts.set(qn("w:ascii"), MANUSCRIPT_FONT)
+        style._element.rPr.rFonts.set(qn("w:hAnsi"), MANUSCRIPT_FONT)
         style.font.size = Pt(size)
         style.font.bold = True
         style.font.color.rgb = RGBColor.from_string(color)
@@ -699,11 +707,12 @@ def configure_doc(doc: Document, *, header_text: str, supplement: bool = False) 
         style.paragraph_format.keep_with_next = True
 
     caption = doc.styles["Caption"]
-    caption.font.name = "Calibri"
-    caption._element.rPr.rFonts.set(qn("w:ascii"), "Calibri")
-    caption._element.rPr.rFonts.set(qn("w:hAnsi"), "Calibri")
+    caption.font.name = MANUSCRIPT_FONT
+    caption._element.rPr.rFonts.set(qn("w:ascii"), MANUSCRIPT_FONT)
+    caption._element.rPr.rFonts.set(qn("w:hAnsi"), MANUSCRIPT_FONT)
     caption.font.size = Pt(9)
     caption.font.color.rgb = RGBColor.from_string(BLACK)
+    caption.font.bold = False
     caption.paragraph_format.space_before = Pt(4)
     caption.paragraph_format.space_after = Pt(8)
     caption.paragraph_format.line_spacing = 1.15
@@ -720,7 +729,7 @@ def configure_doc(doc: Document, *, header_text: str, supplement: bool = False) 
     header.text = ("SUPPLEMENTARY INFORMATION | " if supplement else "") + header_text
     header.alignment = WD_ALIGN_PARAGRAPH.LEFT
     header.paragraph_format.space_after = Pt(0)
-    set_run_font(header.runs[0], size=9, color=DARK_BLUE)
+    set_run_font(header.runs[0], size=8.5, color=BLACK)
     footer = section.footer.paragraphs[0]
     add_page_number(footer)
 
@@ -730,7 +739,7 @@ def add_title(doc: Document, title: str, subtitle: str | None = None) -> None:
     p.paragraph_format.space_before = Pt(18)
     p.paragraph_format.space_after = Pt(10)
     p.alignment = WD_ALIGN_PARAGRAPH.LEFT
-    set_run_font(p.add_run(title), size=18, bold=True, color=DARK_BLUE)
+    set_run_font(p.add_run(title), size=18, bold=True, color=BLACK)
     if subtitle:
         p = doc.add_paragraph()
         p.paragraph_format.space_after = Pt(12)
@@ -871,8 +880,8 @@ def abstract_word_count() -> int:
 
 def _font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
     candidates = [
-        Path("C:/Windows/Fonts/calibrib.ttf" if bold else "C:/Windows/Fonts/calibri.ttf"),
         Path("C:/Windows/Fonts/arialbd.ttf" if bold else "C:/Windows/Fonts/arial.ttf"),
+        Path("C:/Windows/Fonts/calibrib.ttf" if bold else "C:/Windows/Fonts/calibri.ttf"),
     ]
     for path in candidates:
         if path.exists():
@@ -997,7 +1006,7 @@ def build_main() -> None:
     p = doc.add_paragraph()
     p.paragraph_format.space_after = Pt(12)
     set_run_font(p.add_run("Author details: "), bold=True)
-    set_run_font(p.add_run(f"{AUTHOR_FULL}; {AFFILIATION}; {AUTHOR_EMAIL}; {AUTHOR_ORCID}."), color=DARK_BLUE)
+    set_run_font(p.add_run(f"{AUTHOR_FULL}; {AFFILIATION}; {AUTHOR_EMAIL}; {AUTHOR_ORCID}."), color=BLACK)
     add_body(doc, f"Main-text word count (Introduction, Results and Discussion): {narrative_word_count()}. Abstract: {abstract_word_count()} words.")
 
     add_h1(doc, "Abstract")
@@ -1348,6 +1357,7 @@ def build_instruction_audit() -> None:
         ["Main display items", "Up to six figures and/or tables", "5 figures + 1 table", "Pass"],
         ["Structure", "Unheaded Introduction; Results; Discussion; Methods", "Matched", "Pass"],
         ["Subheadings", "Results/Methods topical; Discussion none", "Matched", "Pass"],
+        ["Typography", "Initial submissions are format-flexible; Word accepts standard fonts", "Arial 11 pt body, 1.5 spacing, black text", "Pass"],
         ["References", "Typically up to 50", str(len(REFERENCES)), "Pass"],
         ["Supplement", "Single combined file; large data separate", "Word + submission PDF; CSV archive", "Pass"],
         ["Code availability", "Statement and reviewer access for central custom code", f"Public GitHub repository; {ZENODO_STATUS}", "Conditional"],
@@ -1388,6 +1398,7 @@ def build_submission_checklist() -> None:
         "Completed official Nature PDFs: Reporting Summary smart form and Machine Learning Checklist v1.1",
         "Reproducibility code and tests archive",
         "Numerical, figure-inventory and manuscript-structure audit",
+        "Reviewer-facing typography standardized: Arial 11 pt body, 1.5 line spacing and black text",
     ]:
         add_bullet(doc, item)
     add_h1(doc, "Completed author and infrastructure actions")
