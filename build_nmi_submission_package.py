@@ -1460,6 +1460,8 @@ def archive_code() -> None:
         ROOT / "pyproject.toml",
         ROOT / "modal_app.py",
         ROOT / "run_observability_benchmark.py",
+        ROOT / "build_nmi_submission_package.py",
+        ROOT / "build_manuscript_package.py",
         ROOT / "MODAL_RUNBOOK.md",
     ]
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
