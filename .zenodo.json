@@ -1,0 +1,40 @@
+{
+  "title": "Recursive observability makes hidden failures measurable in distributed cancer AI",
+  "upload_type": "software",
+  "description": "Distributed scientific AI is judged by outputs even when its internal observer states cannot be reconstructed or falsified. We define recursive scientific observability as nine conditions linking provenance, agent identifiability, Master-state reconstructability, self-error ordering, channel separability, failure sensitivity, non-redundant depth and cross-system invariance. We evaluated three architectures using observed DepMap/PRISM, LINCS and TCGA data. Across 4,431 transitions, all events met the transition contract and all nine conditions were demonstrated. Ninety graded disruptions hid, corrupted or collapsed internal channels; all 18 system-by-failure tests detected loss, with median cross-system failure-signature concordance of 0.754. Higher observer levels added held-out reconstruction information in every system (maximum marginal gains, 0.207-0.416). Outcome metrics were secondary: TCGA AUROC was 0.677, whereas self-error ranking failed, showing that discrimination can coexist with poor introspection. Recursive observability is therefore a falsifiable engineering property of scientific AI, not proof of biological correctness or clinical utility.",
+  "version": "1.0.0",
+  "publication_date": "2026-09-04",
+  "language": "eng",
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": [
+    "recursive scientific observability",
+    "distributed artificial intelligence",
+    "pan-cancer",
+    "failure detection",
+    "reproducible research"
+  ],
+  "creators": [
+    {
+      "name": "Yadalam, Pradeep Kumar",
+      "affiliation": "Department of Periodontics, Saveetha Dental College and Hospitals, Saveetha Institute of Medical and Technical Sciences (SIMATS), Chennai 600077, Tamil Nadu, India",
+      "orcid": "0000-0002-6653-4123"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Yadalam, Pradeep Kumar",
+      "type": "DataCurator",
+      "affiliation": "Department of Periodontics, Saveetha Dental College and Hospitals, Saveetha Institute of Medical and Technical Sciences (SIMATS), Chennai 600077, Tamil Nadu, India",
+      "orcid": "0000-0002-6653-4123"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Pkr2180/recursive-observability-cancer-ai",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "This study received no specific grant from any funding agency in the public, commercial or not-for-profit sectors."
+}

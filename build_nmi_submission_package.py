@@ -60,18 +60,23 @@ AFFILIATION = (
     "Chennai 600077, Tamil Nadu, India"
 )
 AUTHOR_EMAIL = "pradeepkumar.sdc@saveetha.com"
-AUTHOR_ORCID = "ORCID pending author confirmation"
+ORCID_ID = "0000-0002-6653-4123"
+AUTHOR_ORCID = f"ORCID {ORCID_ID}"
 REPOSITORY_URL = "https://github.com/Pkr2180/recursive-observability-cancer-ai"
-ZENODO_STATUS = "Zenodo DOI pending archive authorization"
+ZENODO_STATUS = (
+    "Zenodo archiving metadata is prepared in the code repository (.zenodo.json); the versioned "
+    "DOI will be inserted on archival release"
+)
 CREDIT_STATEMENT = (
     "Pradeep Kumar Yadalam: Conceptualization, Methodology, Software, Validation, "
     "Formal analysis, Investigation, Resources, Data curation, Writing - original draft, "
-    "Writing - review and editing, Visualization, Supervision, Project administration, "
-    "and Funding acquisition. The sole author accepts responsibility for the work."
+    "Writing - review and editing, Visualization, Supervision and Project administration. "
+    "No funding acquisition role applies because the study received no specific grant. "
+    "The sole author accepts responsibility for the work."
 )
 FUNDING_STATEMENT = (
-    "No specific external funding information was provided for this study. The sole author "
-    "must confirm this statement before submission."
+    "This study received no specific grant from any funding agency in the public, commercial "
+    "or not-for-profit sectors."
 )
 ACKNOWLEDGEMENT_STATEMENT = (
     "The analyses were executed in the author's Modal workspace, pradeepaiperio. "
@@ -1282,9 +1287,7 @@ def build_reporting_summary() -> None:
         add_bullet(doc, f"{label}: {answer}")
     add_h1(doc, "Final confirmations")
     for item in [
-        "Confirm the correct ORCID identifier",
-        "Confirm the no-specific-funding statement",
-        "Insert the Zenodo DOI after archive authorization",
+        "Insert the Zenodo DOI once the archival release is published",
         "Review and sign Nature_Forms/Nature_Portfolio_Reporting_Summary_COMPLETED.pdf in Adobe Acrobat or Reader; these responses are already written into that official smart form",
     ]:
         add_bullet(doc, item)
@@ -1349,7 +1352,7 @@ def build_instruction_audit() -> None:
         ["Supplement", "Single combined file; large data separate", "Word + submission PDF; CSV archive", "Pass"],
         ["Code availability", "Statement and reviewer access for central custom code", f"Public GitHub repository; {ZENODO_STATUS}", "Conditional"],
         ["Reporting forms", "Life-sciences Reporting Summary and ML checklist", "Completed ML PDF + Reporting Summary response draft", "Conditional"],
-        ["Author declarations", "Authors, contributions, interests, funding", "Sole-author fields completed; ORCID/funding confirmation pending", "Conditional"],
+        ["Author declarations", "Authors, contributions, interests, funding", "Sole-author fields, ORCID and no-funding statement completed", "Complete"],
     ]
     add_table(doc, ["Item", "Instruction", "Package", "Status"], rows, [1800, 3100, 2760, 1700], font_size=8.0)
     add_h1(doc, "Official sources")
@@ -1395,15 +1398,16 @@ def build_submission_checklist() -> None:
         f"Public GitHub reproducibility repository created: {REPOSITORY_URL}",
         "Modal workspace, container and declared compute resources documented",
         "Originality, author approval and exclusive-submission declarations completed",
+        f"ORCID confirmed: {ORCID_ID}",
+        "No-specific-funding statement confirmed by the author",
+        "Zenodo archive metadata prepared: publication_repository/.zenodo.json and CITATION.cff",
         "Reporting Summary responses transferred into Nature's official smart form: Nature_Forms/Nature_Portfolio_Reporting_Summary_COMPLETED.pdf",
         "Machine Learning Checklist v1.1 completed: Nature_Forms/Nature_Machine_Learning_Checklist_COMPLETED.pdf",
     ]:
         add_bullet(doc, item)
     add_h1(doc, "Remaining actions")
     for item in [
-        "Confirm the correct ORCID identifier because public records conflict",
-        "Confirm that no specific external funding supported this study",
-        "Authorize Zenodo archiving, mint a DOI and insert the DOI throughout the package",
+        "Enable the Zenodo-GitHub integration for the repository and publish release v1.0.0 to mint the DOI, then insert the DOI throughout the package",
         "Open both completed Nature PDFs in Adobe Acrobat or Reader to review and sign them; the Reporting Summary is a LiveCycle form that only Adobe renders, so other PDF viewers will show its placeholder page",
         "Supply a telephone number directly in the submission system if the journal requires it",
     ]:
@@ -1455,6 +1459,100 @@ def export_pdfs() -> None:
         target = OUT / f"{stem}.pdf"
         if not target.exists() or target.stat().st_mtime < source.stat().st_mtime:
             raise RuntimeError(f"PDF export did not refresh {target}")
+
+
+REPO_DIR = ROOT / "publication_repository"
+ARCHIVE_VERSION = "1.0.0"
+ARCHIVE_LICENSE = "MIT"
+ARCHIVE_LICENSE_NAME = "MIT License"
+KEYWORDS = [
+    "recursive scientific observability",
+    "distributed artificial intelligence",
+    "pan-cancer",
+    "failure detection",
+    "reproducible research",
+]
+
+
+def build_archive_metadata() -> None:
+    """Write the Zenodo and citation metadata that the archival release will pick up."""
+    if not REPO_DIR.is_dir():
+        return
+    citation = [
+        "cff-version: 1.2.0",
+        'message: "If you use this software or its results, please cite the associated manuscript and archived release."',
+        f'title: "{TITLE}"',
+        "type: software",
+        "authors:",
+        '  - family-names: "Yadalam"',
+        '    given-names: "Pradeep Kumar"',
+        f'    affiliation: "{AFFILIATION}"',
+        f'    email: "{AUTHOR_EMAIL}"',
+        f'    orcid: "https://orcid.org/{ORCID_ID}"',
+        f'repository-code: "{REPOSITORY_URL}"',
+        f"date-released: {DATE}",
+        f"version: {ARCHIVE_VERSION}",
+        f'license: "{ARCHIVE_LICENSE}"',
+        "keywords:",
+    ]
+    citation += [f"  - {keyword}" for keyword in KEYWORDS]
+    (REPO_DIR / "CITATION.cff").write_text("\n".join(citation) + "\n", encoding="utf-8")
+
+    zenodo = {
+        "title": TITLE,
+        "upload_type": "software",
+        "description": ABSTRACT,
+        "version": ARCHIVE_VERSION,
+        "publication_date": DATE,
+        "language": "eng",
+        "license": ARCHIVE_LICENSE,
+        "access_right": "open",
+        "keywords": KEYWORDS,
+        "creators": [
+            {
+                "name": "Yadalam, Pradeep Kumar",
+                "affiliation": AFFILIATION,
+                "orcid": ORCID_ID,
+            }
+        ],
+        "contributors": [
+            {
+                "name": "Yadalam, Pradeep Kumar",
+                "type": "DataCurator",
+                "affiliation": AFFILIATION,
+                "orcid": ORCID_ID,
+            }
+        ],
+        "related_identifiers": [
+            {"identifier": REPOSITORY_URL, "relation": "isSupplementTo", "scheme": "url"}
+        ],
+        "notes": FUNDING_STATEMENT,
+    }
+    (REPO_DIR / ".zenodo.json").write_text(json.dumps(zenodo, indent=2) + "\n", encoding="utf-8")
+
+    license_text = f"""{ARCHIVE_LICENSE_NAME}
+
+Copyright (c) {DATE.split("-")[0]} {AUTHOR_NAME}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+"""
+    (REPO_DIR / "LICENSE").write_text(license_text, encoding="utf-8")
 
 
 def fill_official_forms() -> None:
@@ -1572,6 +1670,7 @@ def main() -> None:
     build_standalone_table()
     download_forms()
     fill_official_forms()
+    build_archive_metadata()
     archive_source_data()
     archive_source_figures()
     archive_code()

@@ -5,11 +5,13 @@ type: software
 authors:
   - family-names: "Yadalam"
     given-names: "Pradeep Kumar"
-    affiliation: "Department of Periodontics, Saveetha Dental College and Hospitals, Saveetha Institute of Medical and Technical Sciences (SIMATS), Chennai, Tamil Nadu, India"
+    affiliation: "Department of Periodontics, Saveetha Dental College and Hospitals, Saveetha Institute of Medical and Technical Sciences (SIMATS), Chennai 600077, Tamil Nadu, India"
     email: "pradeepkumar.sdc@saveetha.com"
+    orcid: "https://orcid.org/0000-0002-6653-4123"
 repository-code: "https://github.com/Pkr2180/recursive-observability-cancer-ai"
 date-released: 2026-09-04
 version: 1.0.0
+license: "MIT"
 keywords:
   - recursive scientific observability
   - distributed artificial intelligence
