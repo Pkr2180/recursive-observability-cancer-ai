@@ -1,0 +1,143 @@
+# Recursive observability in distributed cancer AI
+
+This repository contains the reproducibility code, tests, configuration, and compact result
+artifacts for the manuscript **"Recursive observability makes hidden failures measurable in
+distributed cancer AI"**.
+
+Author and corresponding author: **Pradeep Kumar Yadalam, BDS, MDS, PhD**  
+Department of Periodontics, Saveetha Dental College and Hospitals, Saveetha Institute of
+Medical and Technical Sciences (SIMATS), Chennai 600077, Tamil Nadu, India  
+Email: pradeepkumar.sdc@saveetha.com
+
+The scientific analyses use observed public pan-cancer data. No simulated patients, cell
+states, or biological trajectories are used as evidence. Large raw and processed datasets
+remain in the `pradeepaiperio` Modal workspace; compact results needed to audit the manuscript
+claims are included under `final_results/`.
+
+## Reproducibility entry points
+
+- `run_observability_benchmark.py`: run the recursive observability benchmark from retrieved
+  compact results.
+- `modal_app.py`: Modal entry points for public-data acquisition, harmonisation, modelling,
+  validation, and reporting.
+- `MODAL_RUNBOOK.md`: remote execution sequence and volume layout.
+- `tests/`: automated unit and integration tests.
+- `final_results/`: compact tables, figures, manifests, and fitted secondary-analysis assets.
+
+## Citation
+
+Citation metadata are provided in `CITATION.cff`. A versioned Zenodo DOI will be added after
+the first archival release.
+
+## Original project description
+
+This project implements a Modal-first scaffold for the Pan-Cancer Biological Universe and Multi-Reinforcement workflow.
+
+The project design is:
+
+```text
+Local folder = code, configs, documents
+Modal account = data download, processing, quantisation, model execution, results
+```
+
+Required Modal workspace/profile: `pradeepaiperio` (separate login). Activate it with
+`modal profile activate pradeepaiperio` before running the pipeline.
+
+`modal_app.py` enforces this account at every local entrypoint and refuses execution when
+another Modal profile is active. All downloads, preprocessing, models, results and logs must
+remain in `pradeepaiperio`; synthetic/simulated data is not accepted as scientific evidence.
+
+Scope rule:
+
+```text
+Use pan-cancer data only for this project.
+Do not mix oral-resistome, single-disease-only side projects, or unrelated Modal apps into this workflow.
+Use real pan-cancer observations for scientific execution; do not substitute synthetic or simulated data.
+```
+
+Project root:
+
+```text
+D:\pending work\ai - view
+```
+
+Main files:
+
+- `modal_app.py`: Modal app and remote entrypoints.
+- `configs/data_sources.yaml`: database/source manifest.
+- `src/downloaders/`: remote download/index code.
+- `src/preprocessing/`: remote data profiling and harmonisation bootstrap.
+- `src/quantisation/`: pan-cancer state-token bootstrap.
+- `src/agents/`: small-brain metrics and smoke tests.
+- `src/observability/`: required O0-O6 transition telemetry, separated instability streams,
+  Master/self/meta reconstruction, RMOI profile, observer depth, OSIC and OOSC.
+- `src/observability/primary.py`: fail-closed primary MSOI/RMOI/SAOI evaluation, observability
+  rank, divergence/hypothesis/provenance/gate/state-dynamics artifacts and the consolidated
+  Master Scientific Observability Dashboard.
+- `src/observability/verification.py`: non-ablation verification of every Master architecture
+  and observer agent, with biological-unit cluster bootstrap intervals, observed-value
+  permutations, FDR correction, channel-rank/dependence tests, uncertainty calibration,
+  selective-risk curves and component-level performance.
+- `src/reporting/observability_results.py`: publication package generator for all primary
+  observability figures, tables, summaries and checksum manifests.
+- `src/validation/real_data.py`: cancer-lineage stratification, drug-target metadata curation,
+  and observed-value permutation controls (no synthetic samples).
+- `src/validation/gdsc_replication.py`: independent GDSC1/GDSC2 replication of real
+  PRISM/CRISPR dependency-pharmacology associations.
+- `src/downloaders/lincs.py` and `src/preprocessing/lincs_level5.py`: checksum-verified NCBI
+  GEO LINCS Phase II ingestion and cancer-signature extraction.
+- `src/validation/lincs_future_state.py`: frozen unseen-perturbation forecasting audit with
+  separately observable cancer, agent, disagreement, Master and meta-uncertainty channels.
+- `src/downloaders/tcga_clinical.py`, `src/preprocessing/tcga_clinical.py` and
+  `src/validation/tcga_outcomes.py`: official TCGA-CDR ingestion, censoring-aware endpoint
+  linkage and frozen cancer-project-holdout patient-outcome observability audit.
+- `src/agents/master.py`: first real-data three-agent Master Brain and recursive transition log.
+- `src/validation/reinforcement_master.py`: reward-conditioned offline reinforcement Master
+  that learns observer selection/reweighting from frozen LINCS calibration perturbations,
+  evaluates on unseen observed perturbations, and trains a recursive self-error observer and
+  uncertainty-driven act/defer gate.
+- `src/distillation/`: distillation smoke tests.
+- `MODAL_RUNBOOK.md`: execution instructions.
+
+Scientific workflow files:
+
+- `01_PanCancer_Biological_Universe_Workflow.md`
+- `02_PanCancer_Quantisation_and_Distillation_Module.md`
+- `03_Project_Roadmap_and_File_Index.md`
+- `PanCancer_Biological_Universe_Workflow_Summary.txt`
+- `06_Recursive_Scientific_Observability_Requirement.md`
+- `08_LINCS_Real_Future_State_Audit.md`
+- `09_TCGA_Real_Patient_Outcome_Observability_Audit.md`
+- `10_Primary_Scientific_Observability_Implementation.md`
+
+Current real-data execution state in `pradeepaiperio`:
+
+- 330 open-access TCGA STAR-count RNA-seq files, balanced at 10 files in each of all 33
+  TCGA projects, harmonised across 60,660 genes;
+- DepMap expression/CRISPR and PRISM response matrices;
+- 575,197 official GDSC1/GDSC2 response observations, including 322,040 rows mapped to
+  531 DepMap models;
+- real validation across 20 sufficiently represented lineages;
+- first Master Brain across 723 shared models and 29 lineages;
+- 2,169 provenance-complete O0-O6 observability transitions;
+- external GDSC replication of 166 PRISM drug-target pairs (75.3% pooled direction concordance).
+- 89,192 LINCS Level-5 cancer signatures across 978 landmark genes, plus 87,229,776 compact
+  real-data state-token cells;
+- frozen audit of 712 matched-time transitions from 24 unseen perturbations, producing 2,136
+  additional trace-complete O0-O6 events.
+- frozen nonlinear/null audit with 1,000 observed-value permutations and FDR correction across
+  all separated observability-channel tests.
+- official TCGA-CDR outcomes for 11,160 patients across all 33 projects, linked to all 330 RNA
+  files; a frozen 227-patient two-year OS cohort retained all 33 projects;
+- cancer-project-holdout patient-outcome audit with 42 untouched test patients, 126 complete
+  O0-O6 events and all five instability streams retained separately.
+- observability-first audit over 4,431 real-data transitions with strict validity 1.0 and separate
+  MSOI, RMOI and SAOI profiles; predictive performance is retained only as secondary telemetry.
+- non-ablation verification of all three Master architectures and all nine observer agents
+  across 1,477 independent biological units, using 2,000 cluster-bootstrap/permutation
+  replicates and preserving the boundary between observational and causal attribution.
+- publication-ready results package with 19 figures in PNG/SVG, 20 tables in CSV/HTML, a
+  navigable HTML index, results summary and SHA-256 artifact manifests.
+
+Compact local results are available under `final_results/primary_scientific_observability_results`.
+The raw and processed pan-cancer data remain only in the `pradeepaiperio` Modal Volumes.

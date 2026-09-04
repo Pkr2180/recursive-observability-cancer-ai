@@ -1,0 +1,25 @@
+run,system,metric,estimate,ci_95_low,ci_95_high,n_independent_biological_units,bootstrap_unit,observed_value_permutation_p,fdr_bh_q
+depmap_prism_master,DepMap/PRISM Master,OSIC_cancer_master,0.2709646454932223,0.2027294918523604,0.3366910010859734,723,episode/patient/observed transition,0.0004997501249375,0.0004997501249375
+depmap_prism_master,DepMap/PRISM Master,mean_cancer_future_state,0.2751873529353339,0.2690899726233617,0.2816186555504152,723,episode/patient/observed transition,not_applicable,not_applicable
+depmap_prism_master,DepMap/PRISM Master,mean_individual_agents,0.8614177020859397,0.8581766426376651,0.8642639855539993,723,episode/patient/observed transition,not_applicable,not_applicable
+depmap_prism_master,DepMap/PRISM Master,mean_inter_agent_disagreement,0.207976414734497,0.2012320174502019,0.2147338339150649,723,episode/patient/observed transition,not_applicable,not_applicable
+depmap_prism_master,DepMap/PRISM Master,mean_master_state,0.6669400236076848,0.6642661926429596,0.669567885647843,723,episode/patient/observed transition,not_applicable,not_applicable
+depmap_prism_master,DepMap/PRISM Master,mean_master_self_observation_uncertainty,0.0369703936237949,0.0354849974226473,0.038597944285264,723,episode/patient/observed transition,not_applicable,not_applicable
+depmap_prism_master,DepMap/PRISM Master,state_reconstructability,0.9985108560575922,0.9983915724186712,0.9986054808537764,723,episode/patient/observed transition,not_applicable,not_applicable
+depmap_prism_master,DepMap/PRISM Master,recursive_consistency,0.9558344907564676,0.950646684868738,0.9596515471520982,723,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,OSIC_cancer_master,0.894650492639775,0.8695541679170856,0.915190844074625,712,episode/patient/observed transition,0.0004997501249375,0.0004997501249375
+lincs_future_state,LINCS future state,mean_cancer_future_state,0.9651869461358932,0.9258524092437512,1.0083070397711873,712,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,mean_individual_agents,0.7674811639724772,0.7335654270719469,0.8024429108061478,712,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,mean_inter_agent_disagreement,0.2212000976795653,0.2138628684150741,0.2290701988705882,712,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,mean_master_state,0.7311697729511971,0.6970338449214267,0.7666013253175408,712,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,mean_master_self_observation_uncertainty,0.2667996779168131,0.2477659167675201,0.2863059363132017,712,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,state_reconstructability,0.2228505809300932,0.2056513496467467,0.2389084665233248,712,episode/patient/observed transition,not_applicable,not_applicable
+lincs_future_state,LINCS future state,recursive_consistency,0.5680132333183043,0.5437644126449817,0.5958663066698383,712,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,OSIC_cancer_master,0.8962684073137189,0.7973379150769533,0.9488377844509912,42,episode/patient/observed transition,0.0004997501249375,0.0004997501249375
+tcga_patient_outcome,TCGA patient outcome,mean_cancer_future_state,0.6734723289745789,0.591820656999568,0.7514048288464189,42,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,mean_individual_agents,0.1311597774133509,0.1222393244879583,0.139610831886753,42,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,mean_inter_agent_disagreement,0.1106782206541337,0.0937574682875299,0.1285700108252192,42,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,mean_master_state,0.8505522136682945,0.8065352687277458,0.8943610926912199,42,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,mean_master_self_observation_uncertainty,0.039634901991213,0.0331879651965568,0.0470339602102794,42,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,state_reconstructability,1.0,1.0,1.0,42,episode/patient/observed transition,not_applicable,not_applicable
+tcga_patient_outcome,TCGA patient outcome,recursive_consistency,0.4361008249962578,0.2723693339009643,0.572848477016063,42,episode/patient/observed transition,not_applicable,not_applicable

@@ -1,0 +1,498 @@
+<!doctype html><meta charset='utf-8'><style>body{font-family:Arial;margin:24px}table{border-collapse:collapse}th,td{border:1px solid #bbb;padding:6px}th{background:#eaf2f8}</style><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>run</th>
+      <th>system</th>
+      <th>component_type</th>
+      <th>component</th>
+      <th>metric</th>
+      <th>estimate</th>
+      <th>ci_95_low</th>
+      <th>ci_95_high</th>
+      <th>n_independent_biological_units</th>
+      <th>boundary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>agent</td>
+      <td>expression</td>
+      <td>mean_declared_influence</td>
+      <td>0.355744</td>
+      <td>0.347111</td>
+      <td>0.364608</td>
+      <td>723</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>agent</td>
+      <td>expression</td>
+      <td>representation_explained_variance</td>
+      <td>0.401789</td>
+      <td>not_applicable</td>
+      <td>not_applicable</td>
+      <td>723</td>
+      <td>Observed PCA representation; source=master_brain/real_agent_states.parquet</td>
+    </tr>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>agent</td>
+      <td>dependency</td>
+      <td>mean_declared_influence</td>
+      <td>0.333634</td>
+      <td>0.326042</td>
+      <td>0.341357</td>
+      <td>723</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>agent</td>
+      <td>dependency</td>
+      <td>representation_explained_variance</td>
+      <td>0.130311</td>
+      <td>not_applicable</td>
+      <td>not_applicable</td>
+      <td>723</td>
+      <td>Observed PCA representation; source=master_brain/real_agent_states.parquet</td>
+    </tr>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>agent</td>
+      <td>pharmacology</td>
+      <td>mean_declared_influence</td>
+      <td>0.310622</td>
+      <td>0.299619</td>
+      <td>0.321253</td>
+      <td>723</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>agent</td>
+      <td>pharmacology</td>
+      <td>representation_explained_variance</td>
+      <td>0.313461</td>
+      <td>not_applicable</td>
+      <td>not_applicable</td>
+      <td>723</td>
+      <td>Observed PCA representation; source=master_brain/real_agent_states.parquet</td>
+    </tr>
+    <tr>
+      <td>depmap_prism_master</td>
+      <td>DepMap/PRISM Master</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>state_reconstructability</td>
+      <td>0.998511</td>
+      <td>0.998393</td>
+      <td>0.998604</td>
+      <td>723</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>ridge</td>
+      <td>forecast_normalized_l2_error</td>
+      <td>0.791822</td>
+      <td>0.758264</td>
+      <td>0.826194</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>ridge</td>
+      <td>forecast_cosine_similarity</td>
+      <td>0.500182</td>
+      <td>0.482801</td>
+      <td>0.518837</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>ridge</td>
+      <td>transition_direction_cosine</td>
+      <td>0.559499</td>
+      <td>0.542243</td>
+      <td>0.576512</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>ridge</td>
+      <td>declared_counterfactual_influence</td>
+      <td>0.125487</td>
+      <td>0.121803</td>
+      <td>0.129253</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>random_forest</td>
+      <td>forecast_normalized_l2_error</td>
+      <td>0.765029</td>
+      <td>0.731128</td>
+      <td>0.801858</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>random_forest</td>
+      <td>forecast_cosine_similarity</td>
+      <td>0.496920</td>
+      <td>0.476402</td>
+      <td>0.516055</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>random_forest</td>
+      <td>transition_direction_cosine</td>
+      <td>0.613216</td>
+      <td>0.594681</td>
+      <td>0.631265</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>random_forest</td>
+      <td>declared_counterfactual_influence</td>
+      <td>0.102471</td>
+      <td>0.098142</td>
+      <td>0.107134</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>nearest_neighbors</td>
+      <td>forecast_normalized_l2_error</td>
+      <td>0.745593</td>
+      <td>0.710476</td>
+      <td>0.781468</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>nearest_neighbors</td>
+      <td>forecast_cosine_similarity</td>
+      <td>0.535833</td>
+      <td>0.517376</td>
+      <td>0.553967</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>nearest_neighbors</td>
+      <td>transition_direction_cosine</td>
+      <td>0.617610</td>
+      <td>0.59828</td>
+      <td>0.635917</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>agent</td>
+      <td>nearest_neighbors</td>
+      <td>declared_counterfactual_influence</td>
+      <td>0.098139</td>
+      <td>0.094299</td>
+      <td>0.102079</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>lincs_future_state</td>
+      <td>LINCS future state</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>forecast_normalized_l2_error</td>
+      <td>0.731170</td>
+      <td>0.696376</td>
+      <td>0.765114</td>
+      <td>712</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>linear_transcriptome</td>
+      <td>roc_auc</td>
+      <td>0.644444</td>
+      <td>0.456216</td>
+      <td>0.822747</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>linear_transcriptome</td>
+      <td>average_precision</td>
+      <td>0.601513</td>
+      <td>0.372749</td>
+      <td>0.804652</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>linear_transcriptome</td>
+      <td>brier</td>
+      <td>0.221070</td>
+      <td>0.166227</td>
+      <td>0.280717</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>linear_transcriptome</td>
+      <td>log_loss</td>
+      <td>0.634261</td>
+      <td>0.504094</td>
+      <td>0.787036</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>linear_transcriptome</td>
+      <td>ece_5_bins</td>
+      <td>0.149636</td>
+      <td>0.06895</td>
+      <td>0.282459</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>nonlinear_forest</td>
+      <td>roc_auc</td>
+      <td>0.627160</td>
+      <td>0.439894</td>
+      <td>0.802778</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>nonlinear_forest</td>
+      <td>average_precision</td>
+      <td>0.480464</td>
+      <td>0.290576</td>
+      <td>0.751545</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>nonlinear_forest</td>
+      <td>brier</td>
+      <td>0.225769</td>
+      <td>0.168107</td>
+      <td>0.287348</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>nonlinear_forest</td>
+      <td>log_loss</td>
+      <td>0.644315</td>
+      <td>0.522741</td>
+      <td>0.78095</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>nonlinear_forest</td>
+      <td>ece_5_bins</td>
+      <td>0.057433</td>
+      <td>0.019278</td>
+      <td>0.215841</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>patient_neighborhood</td>
+      <td>roc_auc</td>
+      <td>0.629630</td>
+      <td>0.451863</td>
+      <td>0.805609</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>patient_neighborhood</td>
+      <td>average_precision</td>
+      <td>0.458546</td>
+      <td>0.284119</td>
+      <td>0.735466</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>patient_neighborhood</td>
+      <td>brier</td>
+      <td>0.243813</td>
+      <td>0.165811</td>
+      <td>0.330519</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>patient_neighborhood</td>
+      <td>log_loss</td>
+      <td>0.702866</td>
+      <td>0.497386</td>
+      <td>0.934292</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>agent</td>
+      <td>patient_neighborhood</td>
+      <td>ece_5_bins</td>
+      <td>0.178646</td>
+      <td>0.066481</td>
+      <td>0.321664</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>roc_auc</td>
+      <td>0.676543</td>
+      <td>0.487399</td>
+      <td>0.854919</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>average_precision</td>
+      <td>0.607043</td>
+      <td>0.372768</td>
+      <td>0.834482</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>brier</td>
+      <td>0.215361</td>
+      <td>0.160324</td>
+      <td>0.278789</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>log_loss</td>
+      <td>0.624746</td>
+      <td>0.498774</td>
+      <td>0.768889</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+    <tr>
+      <td>tcga_patient_outcome</td>
+      <td>TCGA patient outcome</td>
+      <td>master</td>
+      <td>MASTER</td>
+      <td>ece_5_bins</td>
+      <td>0.112083</td>
+      <td>0.038884</td>
+      <td>0.251345</td>
+      <td>42</td>
+      <td>observational verification; not causal attribution</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,120 @@
+# Public and credential-gated source manifest for the Modal-first pan-cancer pipeline.
+#
+# Rule:
+# - Code lives locally in D:\pending work\ai - view.
+# - Dataset downloads and processing run remotely in Modal.
+# - Keep large raw data in Modal Volumes.
+# - Use pan-cancer data only; do not mix unrelated disease-specific projects.
+
+sources:
+  - key: tcga_gdc_public_rnaseq_index
+    kind: gdc_index
+    enabled: true
+    projects:
+      - TCGA-ACC
+      - TCGA-BLCA
+      - TCGA-BRCA
+      - TCGA-CESC
+      - TCGA-CHOL
+      - TCGA-LUAD
+      - TCGA-LUSC
+      - TCGA-COAD
+      - TCGA-DLBC
+      - TCGA-ESCA
+      - TCGA-READ
+      - TCGA-HNSC
+      - TCGA-OV
+      - TCGA-GBM
+      - TCGA-KICH
+      - TCGA-KIRC
+      - TCGA-KIRP
+      - TCGA-LAML
+      - TCGA-LGG
+      - TCGA-LIHC
+      - TCGA-MESO
+      - TCGA-PAAD
+      - TCGA-PCPG
+      - TCGA-PRAD
+      - TCGA-SARC
+      - TCGA-SKCM
+      - TCGA-STAD
+      - TCGA-TGCT
+      - TCGA-THCA
+      - TCGA-THYM
+      - TCGA-UCEC
+      - TCGA-UCS
+      - TCGA-UVM
+    data_category:
+      - Transcriptome Profiling
+    data_type:
+      - Gene Expression Quantification
+    access:
+      - open
+    analysis_workflow_type:
+      - STAR - Counts
+    page_size: 100
+    notes: "All 33 TCGA projects; open-access STAR-count RNA-seq only. The index does not download count files by itself."
+
+  - key: tcga_gdc_public_methylation_index
+    kind: gdc_index
+    enabled: false
+    projects:
+      - TCGA-BRCA
+      - TCGA-LUAD
+      - TCGA-HNSC
+    data_category:
+      - DNA Methylation
+    page_size: 100
+    notes: "Enable after RNA-seq indexing succeeds."
+
+  - key: depmap_crispr_dependency
+    kind: http
+    enabled: false
+    url: ""
+    filename: depmap_crispr_dependency.csv
+    notes: "Set to the selected DepMap release file URL before enabling."
+
+  - key: depmap_expression
+    kind: http
+    enabled: false
+    url: ""
+    filename: depmap_expression.csv
+    notes: "Set to the selected DepMap/CCLE expression release URL before enabling."
+
+  - key: gdsc_drug_response
+    kind: http
+    enabled: false
+    url: ""
+    filename: gdsc_drug_response.csv
+    notes: "Set to the selected GDSC public download URL before enabling."
+
+  - key: prism_drug_response
+    kind: http
+    enabled: false
+    url: ""
+    filename: prism_drug_response.csv
+    notes: "Set to the selected PRISM public download URL before enabling."
+
+  - key: lincs_l1000_perturbation
+    kind: external_portal
+    enabled: false
+    url: "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138"
+    filename: GSE70138_Broad_LINCS_Level5_COMPZ_n118050x12328_2017-03-06.gctx.gz
+    notes: "Implemented through dedicated checksum-verifying download-lincs-* actions."
+
+  - key: cptac_proteomics
+    kind: external_portal
+    enabled: false
+    requires_secret:
+      - CPTAC_OR_PORTAL_ACCESS_IF_NEEDED
+    notes: "CPTAC downloads may require source-specific access choices; add exact URLs/API step after dataset selection."
+
+  - key: single_cell_cancer_atlas
+    kind: external_portal
+    enabled: false
+    notes: "Placeholder for selected single-cell cancer atlas datasets."
+
+  - key: spatial_cancer_atlas
+    kind: external_portal
+    enabled: false
+    notes: "Placeholder for selected spatial transcriptomics datasets."

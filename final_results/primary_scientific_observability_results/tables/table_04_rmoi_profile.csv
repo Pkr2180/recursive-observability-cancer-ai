@@ -1,0 +1,7 @@
+metric,DepMap/PRISM Master,LINCS future state,TCGA patient outcome
+state_reconstructability,0.9985108560575922,0.22285058093009324,1.0
+trace_completeness,1.0,1.0,1.0
+agent_influence_identifiability,1.0,1.0,1.0
+uncertainty_visibility,1.0,1.0,1.0
+meta_uncertainty_observability,1.0,1.0,1.0
+recursive_consistency,0.9558344907564676,0.5680132333183043,0.4361008249962579

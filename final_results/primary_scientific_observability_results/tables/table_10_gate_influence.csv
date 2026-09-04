@@ -1,0 +1,8 @@
+system,gate_applied,events,mean_master_delta,median_master_delta
+DepMap/PRISM Master,dependency_observed_evidence_gate,723,0.4469274404358007,0.4009795298934054
+DepMap/PRISM Master,expression_observed_evidence_gate,723,0.4534940419022313,0.4250273283523552
+DepMap/PRISM Master,pharmacology_observed_evidence_gate,723,0.4193017123876638,0.4097505387992506
+LINCS future state,frozen_unseen_perturbation_holdout_gate,2136,0.6466517273608877,0.5891720757150893
+TCGA patient outcome,linear_transcriptome_observed_evidence_gate,42,0.21713841774968565,0.2001643941446659
+TCGA patient outcome,nonlinear_forest_observed_evidence_gate,42,0.09215101943300132,0.08489156211076154
+TCGA patient outcome,patient_neighborhood_observed_evidence_gate,42,0.053303571358122546,0.053261735155733445

@@ -1,0 +1,16 @@
+run,system,uncertainty_signal,coverage,retained_units,mean_absolute_error,rmse,maximum_uncertainty_retained
+depmap_prism_master,DepMap/PRISM Master,meta_uncertainty,1.0,723,0.038024701507936,0.0417732960339502,0.136559594470583
+depmap_prism_master,DepMap/PRISM Master,meta_uncertainty,0.8,579,0.0356592399333317,0.0388060740093312,0.0550645745381219
+depmap_prism_master,DepMap/PRISM Master,meta_uncertainty,0.6,434,0.0352083052034341,0.0377691610349377,0.0396692994999186
+depmap_prism_master,DepMap/PRISM Master,meta_uncertainty,0.4,290,0.0360977848527469,0.0381916147135211,0.0287030383781203
+depmap_prism_master,DepMap/PRISM Master,meta_uncertainty,0.2,145,0.0392013871526837,0.0409187875567757,0.0189632687317859
+lincs_future_state,LINCS future state,master_self_observation_uncertainty,1.0,712,0.7311697729511971,0.8706040563551608,1.808395764661345
+lincs_future_state,LINCS future state,master_self_observation_uncertainty,0.8,570,0.6024142601037259,0.6885343208142845,0.94669755174306
+lincs_future_state,LINCS future state,master_self_observation_uncertainty,0.6,428,0.5200478972608596,0.5665239703460928,0.7668515657854909
+lincs_future_state,LINCS future state,master_self_observation_uncertainty,0.4,285,0.489732083265009,0.5400243922929753,0.6499871602985299
+lincs_future_state,LINCS future state,master_self_observation_uncertainty,0.2,143,0.4594611862286331,0.4871587666572022,0.5635021993080636
+tcga_patient_outcome,TCGA patient outcome,predicted_master_error,1.0,42,0.4172008290385081,0.4640701249275101,0.7101331752289405
+tcga_patient_outcome,TCGA patient outcome,predicted_master_error,0.8,34,0.4582481537309615,0.4900949221885137,0.6014198182133864
+tcga_patient_outcome,TCGA patient outcome,predicted_master_error,0.6,26,0.4558719513631468,0.4833062776613097,0.5110145746529784
+tcga_patient_outcome,TCGA patient outcome,predicted_master_error,0.4,17,0.4500909323666534,0.4789738749748987,0.4630064696469274
+tcga_patient_outcome,TCGA patient outcome,predicted_master_error,0.2,9,0.3937711798896436,0.4151903248630849,0.4400262106317577

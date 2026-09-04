@@ -1,0 +1,22 @@
+system,level,name,observable
+DepMap/PRISM Master,0,external_trace,1.0
+DepMap/PRISM Master,1,individual_agent,0.9985108560575922
+DepMap/PRISM Master,2,inter_agent,1.0
+DepMap/PRISM Master,3,master_state,0.9985108560575922
+DepMap/PRISM Master,4,master_self_observation,1.0
+DepMap/PRISM Master,5,recursive_meta_observation,0.9558344907564676
+DepMap/PRISM Master,6,observer_observer_system_coupling,1.0
+LINCS future state,0,external_trace,1.0
+LINCS future state,1,individual_agent,0.22285058093009324
+LINCS future state,2,inter_agent,1.0
+LINCS future state,3,master_state,0.22285058093009324
+LINCS future state,4,master_self_observation,1.0
+LINCS future state,5,recursive_meta_observation,0.5680132333183043
+LINCS future state,6,observer_observer_system_coupling,1.0
+TCGA patient outcome,0,external_trace,1.0
+TCGA patient outcome,1,individual_agent,1.0
+TCGA patient outcome,2,inter_agent,1.0
+TCGA patient outcome,3,master_state,1.0
+TCGA patient outcome,4,master_self_observation,1.0
+TCGA patient outcome,5,recursive_meta_observation,0.4361008249962579
+TCGA patient outcome,6,observer_observer_system_coupling,1.0

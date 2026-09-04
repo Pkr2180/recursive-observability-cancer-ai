@@ -1,0 +1,41 @@
+run,system,component_type,component,metric,estimate,ci_95_low,ci_95_high,n_independent_biological_units,boundary
+depmap_prism_master,DepMap/PRISM Master,agent,expression,mean_declared_influence,0.3557440091600887,0.3471108661981571,0.3646083403114603,723,observational verification; not causal attribution
+depmap_prism_master,DepMap/PRISM Master,agent,expression,representation_explained_variance,0.4017885614969536,not_applicable,not_applicable,723,Observed PCA representation; source=master_brain/real_agent_states.parquet
+depmap_prism_master,DepMap/PRISM Master,agent,dependency,mean_declared_influence,0.3336343758781295,0.3260423071293536,0.3413567158479224,723,observational verification; not causal attribution
+depmap_prism_master,DepMap/PRISM Master,agent,dependency,representation_explained_variance,0.1303105831679876,not_applicable,not_applicable,723,Observed PCA representation; source=master_brain/real_agent_states.parquet
+depmap_prism_master,DepMap/PRISM Master,agent,pharmacology,mean_declared_influence,0.3106216149617817,0.2996192133196534,0.3212531792818179,723,observational verification; not causal attribution
+depmap_prism_master,DepMap/PRISM Master,agent,pharmacology,representation_explained_variance,0.3134611427809929,not_applicable,not_applicable,723,Observed PCA representation; source=master_brain/real_agent_states.parquet
+depmap_prism_master,DepMap/PRISM Master,master,MASTER,state_reconstructability,0.9985108560575922,0.9983930334036276,0.9986041453610968,723,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,ridge,forecast_normalized_l2_error,0.7918217374093792,0.75826423179566,0.8261937950227684,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,ridge,forecast_cosine_similarity,0.5001818701725835,0.4828006512718524,0.5188371888928677,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,ridge,transition_direction_cosine,0.5594987412998531,0.54224329155401,0.5765122824898752,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,ridge,declared_counterfactual_influence,0.1254867342446139,0.1218031720366171,0.1292527863162959,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,random_forest,forecast_normalized_l2_error,0.7650291837682984,0.7311275144170768,0.8018584130868859,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,random_forest,forecast_cosine_similarity,0.4969203568250631,0.4764024756935988,0.5160552260094056,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,random_forest,transition_direction_cosine,0.6132158338243137,0.5946805769198557,0.6312646112210824,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,random_forest,declared_counterfactual_influence,0.1024712149799088,0.0981420333775909,0.10713400583795,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,nearest_neighbors,forecast_normalized_l2_error,0.7455925707397538,0.7104758052224402,0.7814683861295812,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,nearest_neighbors,forecast_cosine_similarity,0.5358327738347893,0.517375650034019,0.5539672269756325,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,nearest_neighbors,transition_direction_cosine,0.6176096071143694,0.5982800271605139,0.6359174624315843,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,agent,nearest_neighbors,declared_counterfactual_influence,0.0981385960614478,0.094299298749764,0.1020787526857564,712,observational verification; not causal attribution
+lincs_future_state,LINCS future state,master,MASTER,forecast_normalized_l2_error,0.7311697729511971,0.6963761398926535,0.7651144571570843,712,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,linear_transcriptome,roc_auc,0.6444444444444445,0.4562164750957854,0.8227473262032085,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,linear_transcriptome,average_precision,0.6015127682877786,0.3727490181602023,0.8046521432569819,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,linear_transcriptome,brier,0.221070468310628,0.1662274049107509,0.2807165895337856,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,linear_transcriptome,log_loss,0.6342608008246948,0.5040942076330724,0.7870363162312071,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,linear_transcriptome,ece_5_bins,0.1496358322116217,0.0689500986592211,0.2824585090780409,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,nonlinear_forest,roc_auc,0.6271604938271604,0.4398939043209876,0.8027777777777777,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,nonlinear_forest,average_precision,0.480464419993593,0.2905758311196681,0.7515449699258459,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,nonlinear_forest,brier,0.2257689118112725,0.1681072082139359,0.2873477198803721,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,nonlinear_forest,log_loss,0.6443149266000284,0.5227408130524014,0.7809501973179248,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,nonlinear_forest,ece_5_bins,0.0574331915206157,0.0192778024447694,0.2158410391133944,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,patient_neighborhood,roc_auc,0.6296296296296297,0.4518629807692308,0.805608974358974,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,patient_neighborhood,average_precision,0.4585458231464905,0.2841193110051034,0.7354661758744239,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,patient_neighborhood,brier,0.2438134685974694,0.1658111305978778,0.3305190412467208,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,patient_neighborhood,log_loss,0.7028659949461531,0.4973860766923675,0.9342923118718892,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,agent,patient_neighborhood,ece_5_bins,0.1786461512969411,0.0664813674656771,0.3216639774853348,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,master,MASTER,roc_auc,0.6765432098765433,0.4873989209284846,0.8549188425370146,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,master,MASTER,average_precision,0.6070425819987069,0.3727683097717379,0.8344818156141685,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,master,MASTER,brier,0.2153610808502348,0.1603242636867242,0.2787892065663462,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,master,MASTER,log_loss,0.624745964894857,0.4987743028315136,0.7688885013794755,42,observational verification; not causal attribution
+tcga_patient_outcome,TCGA patient outcome,master,MASTER,ece_5_bins,0.1120827993681351,0.0388835802011605,0.2513453076742975,42,observational verification; not causal attribution

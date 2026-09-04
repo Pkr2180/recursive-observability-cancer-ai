@@ -1,0 +1,10 @@
+run,system,agent_id,events,biological_units,unit_coverage,strict_transition_validity,required_field_coverage,agent_state_dimension,master_state_dimension,mean_agent_state_delta,mean_master_state_delta,mean_reward_or_declared_influence,mean_agent_uncertainty,uncertainty_transition_spearman,evidence_coverage,gate_coverage,hypothesis_coverage,observational_agent_verified
+depmap_prism_master,DepMap/PRISM Master,dependency,723,723,1.0,1.0,1.0,6,8,0.8990972241944607,0.4469274404358007,0.3336343758781295,0.8607460138174972,0.0094670912844654,1.0,1.0,1.0,True
+depmap_prism_master,DepMap/PRISM Master,expression,723,723,1.0,1.0,1.0,6,8,0.9525149860478158,0.4534940419022313,0.3557440091600887,0.8641151574153384,0.0211531511576579,1.0,1.0,1.0,True
+depmap_prism_master,DepMap/PRISM Master,pharmacology,723,723,1.0,1.0,1.0,6,8,0.8829100082185684,0.4193017123876639,0.3106216149617817,0.8593919350249833,-0.0472004481310019,1.0,1.0,1.0,True
+lincs_future_state,LINCS future state,nearest_neighbors,712,712,1.0,1.0,1.0,16,16,0.6965919659288674,0.6466517273608878,0.6054100616818712,0.9639172516318044,not_applicable,1.0,1.0,1.0,True
+lincs_future_state,LINCS future state,random_forest,712,712,1.0,1.0,1.0,16,16,0.7366383553570078,0.6466517273608878,0.5993007549574777,0.9586849125386028,not_applicable,1.0,1.0,1.0,True
+lincs_future_state,LINCS future state,ridge,712,712,1.0,1.0,1.0,16,16,0.6085655831073444,0.6466517273608878,0.587725770491944,1.0307711151823522,not_applicable,1.0,1.0,1.0,True
+tcga_patient_outcome,TCGA patient outcome,linear_transcriptome,42,42,1.0,1.0,1.0,1,1,0.2171384177496856,0.2171384177496856,0.2997592183022636,0.2018970192882963,0.4507738432866057,1.0,1.0,1.0,True
+tcga_patient_outcome,TCGA patient outcome,nonlinear_forest,42,42,1.0,1.0,1.0,1,1,0.168239645718864,0.0921510194330013,0.3630387207572123,0.0806366875344972,0.2300461875050644,1.0,1.0,1.0,True
+tcga_patient_outcome,TCGA patient outcome,patient_neighborhood,42,42,1.0,1.0,1.0,1,1,0.1580760544862871,0.0533035713581225,0.3372020609405239,0.1109456254172593,-0.1081759987035086,1.0,1.0,1.0,True

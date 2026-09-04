@@ -1,0 +1,96 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>condition</th>
+      <th>name</th>
+      <th>definition</th>
+      <th>evidence_metric</th>
+      <th>acceptance_rule</th>
+      <th>observed_evidence</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N1</td>
+      <td>Trace closure</td>
+      <td>Every transition has a valid O0-O6 provenance chain.</td>
+      <td>strict_validity</td>
+      <td>minimum across systems &gt;= 1.00</td>
+      <td>1.0000</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>N2</td>
+      <td>State availability</td>
+      <td>Required states are finite and present at every recursive level.</td>
+      <td>trace_completeness</td>
+      <td>minimum across systems &gt;= 1.00</td>
+      <td>1.0000</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>N3</td>
+      <td>Agent identifiability</td>
+      <td>Agent channels retain distinguishable state information.</td>
+      <td>agent_identifiability</td>
+      <td>minimum across systems &gt;= 0.50</td>
+      <td>1.0000</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>N4</td>
+      <td>Master reconstructability</td>
+      <td>Recorded Master state is recoverable without state substitution.</td>
+      <td>master_fidelity</td>
+      <td>minimum across systems &gt;= 0.95</td>
+      <td>1.0000</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>N5</td>
+      <td>Self-error observability</td>
+      <td>Meta-uncertainty retains ordered information about Master uncertainty.</td>
+      <td>meta_order_fidelity</td>
+      <td>minimum across systems &gt;= 0.95</td>
+      <td>1.0000</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>N6</td>
+      <td>Channel separability</td>
+      <td>The recursive telemetry spans more than one independent channel.</td>
+      <td>channel_rank_ratio</td>
+      <td>minimum across systems &gt;= 0.50</td>
+      <td>0.9105</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>S1</td>
+      <td>Failure sensitivity</td>
+      <td>A condition-specific metric detects controlled loss of each required channel.</td>
+      <td>disruption_sensitivity</td>
+      <td>all failure tests: effect &gt; 0.05 and severity Spearman &lt; -0.70</td>
+      <td>1.0000</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>S2</td>
+      <td>Recursive non-redundancy</td>
+      <td>At least one higher observer level adds held-out reconstruction information.</td>
+      <td>depth_information_gain</td>
+      <td>positive held-out marginal gain &gt; 0.005</td>
+      <td>0.4163</td>
+      <td>demonstrated</td>
+    </tr>
+    <tr>
+      <td>S3</td>
+      <td>Cross-system invariance</td>
+      <td>Controlled failures produce concordant signatures across biological systems.</td>
+      <td>cross_system_concordance</td>
+      <td>median pairwise signature Spearman &gt;= 0.70</td>
+      <td>0.7537</td>
+      <td>demonstrated</td>
+    </tr>
+  </tbody>
+</table>

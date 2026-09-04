@@ -1,0 +1,7 @@
+failure_class,operational_intervention,primary_detector,scientific_interpretation
+hidden_provenance,Remove evidence identifiers and parent traces.,strict_validity,The decision exists but its evidentiary ancestry is not independently inspectable.
+hidden_agent_state,Remove agent-state and agent-uncertainty telemetry.,trace_completeness,The Master output cannot be connected to the state of an observer agent.
+collapsed_agents,Replace distinct agent states by their within-unit mean.,agent_identifiability,Nominally distinct observers no longer provide identifiable perspectives.
+corrupted_master_state,Permute Master states between biological units.,master_fidelity,The recorded Master state is substituted across biological units.
+corrupted_meta_observer,Permute meta-uncertainty between biological units.,meta_order_fidelity,Self-observation is present as telemetry but loses its ordering information.
+collapsed_recursive_channels,Replace uncertainty channels by one shared standardized signal.,channel_rank_ratio,Multiple recursive labels encode a single latent signal.

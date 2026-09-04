@@ -1,0 +1,8 @@
+comparison,mean_reward_difference,ci_95_low,ci_95_high,cluster_sign_flip_p,cluster_unit,clusters,replicates
+reinforcement_master_minus_hard_reward_policy,0.005455195306201271,0.0028637132291344904,0.008481091876178235,0.04247876061969016,held-out perturbation identifier,24,2000
+reinforcement_master_minus_frozen_master,0.0014126843367244734,-9.205447300098328e-05,0.0029879995679940904,0.1454272863568216,held-out perturbation identifier,24,2000
+reinforcement_master_minus_equal_ensemble,0.0015528858243504678,-0.00014167608009310495,0.0032358647646967467,0.12743628185907047,held-out perturbation identifier,24,2000
+reinforcement_master_minus_best_fixed_agent_nearest_neighbors,0.005679322832161233,0.002505161472889324,0.009420653384163723,0.01999000499750125,held-out perturbation identifier,24,2000
+reinforcement_master_minus_agent_ridge,0.023363614022088516,0.01667166914326769,0.0300720411638976,0.0004997501249375312,held-out perturbation identifier,24,2000
+reinforcement_master_minus_agent_random_forest,0.011788629556554759,0.009663245650521856,0.013807037211000451,0.0004997501249375312,held-out perturbation identifier,24,2000
+reinforcement_master_minus_agent_nearest_neighbors,0.005679322832161233,0.0024779162090034653,0.009129806317043078,0.026986506746626688,held-out perturbation identifier,24,2000

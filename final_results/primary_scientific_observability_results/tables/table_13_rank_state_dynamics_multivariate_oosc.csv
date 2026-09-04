@@ -1,0 +1,4 @@
+system,empirical_rank,master_dimension,observability_rank_ratio,state_switching_rate_per_integration_step,mean_state_persistence_steps,mean_agentic_divergence,gaussian_total_correlation
+DepMap/PRISM Master,8,8,1.0,0.8029045643153527,1.1512738853503184,1.2753149218827537,0.13977442613761834
+LINCS future state,16,16,1.0,0.0,3.0,0.38204826826758026,4.123645034186632
+TCGA patient outcome,1,1,1.0,0.023809523809523808,2.8636363636363638,0.1727682655488715,1.747936152237587

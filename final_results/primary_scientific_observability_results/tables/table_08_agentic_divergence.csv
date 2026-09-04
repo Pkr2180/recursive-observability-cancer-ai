@@ -1,0 +1,10 @@
+system,agent_left,agent_right,mean_divergence
+DepMap/PRISM Master,dependency,expression,1.2463198221157432
+DepMap/PRISM Master,dependency,pharmacology,1.2754535409419032
+DepMap/PRISM Master,expression,pharmacology,1.3041714025906146
+LINCS future state,nearest_neighbors,random_forest,0.2695836790477731
+LINCS future state,nearest_neighbors,ridge,0.4334041793665198
+LINCS future state,random_forest,ridge,0.4431569463884477
+TCGA patient outcome,linear_transcriptome,nonlinear_forest,0.168239645718864
+TCGA patient outcome,linear_transcriptome,patient_neighborhood,0.2380188348165491
+TCGA patient outcome,nonlinear_forest,patient_neighborhood,0.1120463161112014

@@ -1,0 +1,10 @@
+condition,name,definition,evidence_metric,acceptance_rule,observed_evidence,result
+N1,Trace closure,Every transition has a valid O0-O6 provenance chain.,strict_validity,minimum across systems >= 1.00,1.0,demonstrated
+N2,State availability,Required states are finite and present at every recursive level.,trace_completeness,minimum across systems >= 1.00,1.0,demonstrated
+N3,Agent identifiability,Agent channels retain distinguishable state information.,agent_identifiability,minimum across systems >= 0.50,0.999999999999998,demonstrated
+N4,Master reconstructability,Recorded Master state is recoverable without state substitution.,master_fidelity,minimum across systems >= 0.95,1.0,demonstrated
+N5,Self-error observability,Meta-uncertainty retains ordered information about Master uncertainty.,meta_order_fidelity,minimum across systems >= 0.95,0.9999999999999999,demonstrated
+N6,Channel separability,The recursive telemetry spans more than one independent channel.,channel_rank_ratio,minimum across systems >= 0.50,0.9105312758275115,demonstrated
+S1,Failure sensitivity,A condition-specific metric detects controlled loss of each required channel.,disruption_sensitivity,all failure tests: effect > 0.05 and severity Spearman < -0.70,1.0,demonstrated
+S2,Recursive non-redundancy,At least one higher observer level adds held-out reconstruction information.,depth_information_gain,positive held-out marginal gain > 0.005,0.41626755342362964,demonstrated
+S3,Cross-system invariance,Controlled failures produce concordant signatures across biological systems.,cross_system_concordance,median pairwise signature Spearman >= 0.70,0.753702346348183,demonstrated

@@ -1,0 +1,48 @@
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>failure_class</th>
+      <th>operational_intervention</th>
+      <th>primary_detector</th>
+      <th>scientific_interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>hidden_provenance</td>
+      <td>Remove evidence identifiers and parent traces.</td>
+      <td>strict_validity</td>
+      <td>The decision exists but its evidentiary ancestry is not independently inspectable.</td>
+    </tr>
+    <tr>
+      <td>hidden_agent_state</td>
+      <td>Remove agent-state and agent-uncertainty telemetry.</td>
+      <td>trace_completeness</td>
+      <td>The Master output cannot be connected to the state of an observer agent.</td>
+    </tr>
+    <tr>
+      <td>collapsed_agents</td>
+      <td>Replace distinct agent states by their within-unit mean.</td>
+      <td>agent_identifiability</td>
+      <td>Nominally distinct observers no longer provide identifiable perspectives.</td>
+    </tr>
+    <tr>
+      <td>corrupted_master_state</td>
+      <td>Permute Master states between biological units.</td>
+      <td>master_fidelity</td>
+      <td>The recorded Master state is substituted across biological units.</td>
+    </tr>
+    <tr>
+      <td>corrupted_meta_observer</td>
+      <td>Permute meta-uncertainty between biological units.</td>
+      <td>meta_order_fidelity</td>
+      <td>Self-observation is present as telemetry but loses its ordering information.</td>
+    </tr>
+    <tr>
+      <td>collapsed_recursive_channels</td>
+      <td>Replace uncertainty channels by one shared standardized signal.</td>
+      <td>channel_rank_ratio</td>
+      <td>Multiple recursive labels encode a single latent signal.</td>
+    </tr>
+  </tbody>
+</table>

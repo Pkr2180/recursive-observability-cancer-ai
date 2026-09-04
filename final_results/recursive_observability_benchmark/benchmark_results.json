@@ -1,0 +1,23 @@
+{
+  "systems": [
+    "depmap_prism",
+    "lincs",
+    "tcga"
+  ],
+  "events": {
+    "depmap_prism": 2169,
+    "lincs": 2136,
+    "tcga": 126
+  },
+  "controlled_tests": 90,
+  "detection_tests_passed": 18,
+  "detection_tests_total": 18,
+  "median_cross_system_concordance": 0.753702346348183,
+  "max_depth_information_gain": {
+    "depmap_prism": 0.20692431167952718,
+    "lincs": 0.41626755342362964,
+    "tcga": 0.3991791267483722
+  },
+  "conditions_demonstrated": 9,
+  "conditions_total": 9
+}

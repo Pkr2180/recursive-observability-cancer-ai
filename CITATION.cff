@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the associated manuscript and archived release."
+title: "Recursive observability makes hidden failures measurable in distributed cancer AI"
+type: software
+authors:
+  - family-names: "Yadalam"
+    given-names: "Pradeep Kumar"
+    affiliation: "Department of Periodontics, Saveetha Dental College and Hospitals, Saveetha Institute of Medical and Technical Sciences (SIMATS), Chennai, Tamil Nadu, India"
+    email: "pradeepkumar.sdc@saveetha.com"
+repository-code: "https://github.com/Pkr2180/recursive-observability-cancer-ai"
+date-released: 2026-09-04
+version: 1.0.0
+keywords:
+  - recursive scientific observability
+  - distributed artificial intelligence
+  - pan-cancer
+  - failure detection
+  - reproducible research
