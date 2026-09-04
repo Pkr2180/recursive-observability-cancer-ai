@@ -27,3 +27,7 @@ dev = [
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["publication_repository", "manuscript_package", "final_results", ".vendor_xena"]

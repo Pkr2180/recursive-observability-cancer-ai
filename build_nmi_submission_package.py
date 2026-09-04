@@ -6,6 +6,7 @@ import json
 import math
 import re
 import shutil
+import subprocess
 import textwrap
 import zipfile
 from pathlib import Path
@@ -73,7 +74,7 @@ FUNDING_STATEMENT = (
     "must confirm this statement before submission."
 )
 ACKNOWLEDGEMENT_STATEMENT = (
-    "The analyses were executed in the author's Modal workspace, `pradeepaiperio`. "
+    "The analyses were executed in the author's Modal workspace, pradeepaiperio. "
     "No non-author contribution requiring acknowledgement was reported."
 )
 COMPETING_INTERESTS_STATEMENT = "The author declares no competing interests."
@@ -84,7 +85,7 @@ ETHICS_STATEMENT = (
     "dataset-level consent and oversight are described in the source publications."
 )
 MODAL_COMPUTE_STATEMENT = (
-    "Remote analyses ran in the `pradeepaiperio` Modal workspace using a Debian-slim Python 3.12 "
+    "Remote analyses ran in the pradeepaiperio Modal workspace using a Debian-slim Python 3.12 "
     "container. Declared function resources ranged from 2 to 8 vCPUs and 4,096 to 32,768 MB memory; "
     "no GPU resource was requested. Modal abstracts the underlying physical processor model. Exact "
     "per-stage wall-clock runtime and energy use were not retained in the retrieved result artifacts."
@@ -753,6 +754,14 @@ def add_body(doc: Document, text: str, *, bold_prefix: str | None = None) -> Non
         p.add_run(text)
 
 
+def add_contact_block(doc: Document, text: str, *, size: float = 9.5) -> None:
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    p.paragraph_format.space_after = Pt(0)
+    p.paragraph_format.line_spacing = 1.0
+    set_run_font(p.add_run(text), size=size)
+
+
 def add_bullet(doc: Document, text: str) -> None:
     p = doc.add_paragraph(style="Compact List")
     p.add_run("- ")
@@ -1167,7 +1176,7 @@ def build_cover_letter() -> None:
     add_body(doc, "Dear Chief Editor,")
     add_body(
         doc,
-        f"Please consider our Article, '{TITLE}'. The manuscript addresses a basic limitation of distributed scientific "
+        f"Please consider this Article, '{TITLE}'. The manuscript addresses a basic limitation of distributed scientific "
         "AI: a system may produce a useful answer while the internal process needed to interrogate that answer is not "
         "reconstructable or falsifiable. We make recursive scientific observability, rather than outcome accuracy, the "
         "primary experimental endpoint."
@@ -1189,9 +1198,8 @@ def build_cover_letter() -> None:
         "All biological inputs are observed public data; no patient, cell state or biological trajectory was simulated."
     )
     add_body(doc, "This manuscript is original, is not under consideration elsewhere, and the sole author approves its submission.")
-    add_body(doc, "Suggested and opposed reviewers were not available in the project folder and should be entered directly in the submission system if requested.")
     add_body(doc, "Sincerely,")
-    add_body(doc, f"{AUTHOR_FULL}\n{AUTHOR_ROLE}\n{AFFILIATION}\nEmail: {AUTHOR_EMAIL}\n{AUTHOR_ORCID}")
+    add_contact_block(doc, f"{AUTHOR_FULL}\n{AUTHOR_ROLE}\n{AFFILIATION}\nEmail: {AUTHOR_EMAIL}\n{AUTHOR_ORCID}")
     doc.core_properties.title = "Cover letter - " + TITLE
     doc.core_properties.author = AUTHOR_NAME
     doc.save(COVER_DOCX)
@@ -1206,7 +1214,7 @@ def build_title_page() -> None:
     add_body(doc, AFFILIATION)
     add_body(doc, "Sole author; no equal-contribution or present-address statements apply.")
     add_h1(doc, "Corresponding author")
-    add_body(doc, f"{AUTHOR_FULL}\n{AUTHOR_ROLE}\n{AFFILIATION}\nEmail: {AUTHOR_EMAIL}\nTelephone: to be supplied in the submission system\n{AUTHOR_ORCID}")
+    add_contact_block(doc, f"{AUTHOR_FULL}\n{AUTHOR_ROLE}\n{AFFILIATION}\nEmail: {AUTHOR_EMAIL}\nTelephone: to be supplied in the submission system\n{AUTHOR_ORCID}", size=10.0)
     add_h1(doc, "Author contributions")
     add_body(doc, CREDIT_STATEMENT)
     add_h1(doc, "Acknowledgements and funding")
@@ -1219,7 +1227,7 @@ def build_title_page() -> None:
     add_body(doc, f"Correspondence and requests for materials should be addressed to {AUTHOR_NAME} ({AUTHOR_EMAIL}).")
     add_h1(doc, "Submission declarations")
     for item in [
-        "All authors have approved the manuscript and its submission.",
+        "The sole author has approved the manuscript and its submission.",
         "The work is original and is not under consideration elsewhere.",
         "The author list and order are final.",
         "All data, code, funding and competing-interest statements are accurate.",
@@ -1233,7 +1241,7 @@ def build_title_page() -> None:
 def build_reporting_summary() -> None:
     doc = Document()
     configure_doc(doc, header_text="Nature Portfolio Reporting Summary responses")
-    add_title(doc, "Nature Portfolio Reporting Summary Response Draft", "Transfer these responses to the official smart PDF in Adobe Reader")
+    add_title(doc, "Nature Portfolio Reporting Summary Response Draft", "These responses are already written into Nature_Forms/Nature_Portfolio_Reporting_Summary_COMPLETED.pdf")
     add_body(doc, f"Corresponding author: {AUTHOR_FULL} | Last updated: {DATE} | Email: {AUTHOR_EMAIL} | {AUTHOR_ORCID}")
     sections = [
         ("Statistics", [
@@ -1266,12 +1274,18 @@ def build_reporting_summary() -> None:
         add_h1(doc, heading)
         for item in items:
             add_bullet(doc, item)
+    add_h1(doc, "Answers written into the official smart form")
+    add_body(doc, "The entries below were written verbatim into the completed Reporting Summary smart form by the script fill_nature_reporting_summary.py, and are reproduced here so that this draft and the official form cannot diverge.")
+    from fill_nature_reporting_summary import described_answers
+
+    for label, answer in described_answers():
+        add_bullet(doc, f"{label}: {answer}")
     add_h1(doc, "Final confirmations")
     for item in [
         "Confirm the correct ORCID identifier",
         "Confirm the no-specific-funding statement",
         "Insert the Zenodo DOI after archive authorization",
-        "Transfer these responses into Nature's official smart PDF",
+        "Review and sign Nature_Forms/Nature_Portfolio_Reporting_Summary_COMPLETED.pdf in Adobe Acrobat or Reader; these responses are already written into that official smart form",
     ]:
         add_bullet(doc, item)
     doc.core_properties.title = "Reporting Summary responses - " + TITLE
@@ -1332,9 +1346,9 @@ def build_instruction_audit() -> None:
         ["Structure", "Unheaded Introduction; Results; Discussion; Methods", "Matched", "Pass"],
         ["Subheadings", "Results/Methods topical; Discussion none", "Matched", "Pass"],
         ["References", "Typically up to 50", str(len(REFERENCES)), "Pass"],
-        ["Supplement", "Single combined file; large data separate", "Word + PDF planned; CSV archive", "Pass"],
+        ["Supplement", "Single combined file; large data separate", "Word + submission PDF; CSV archive", "Pass"],
         ["Code availability", "Statement and reviewer access for central custom code", f"Public GitHub repository; {ZENODO_STATUS}", "Conditional"],
-        ["Reporting forms", "Life-sciences Reporting Summary and ML checklist", "Official PDFs + completed response drafts", "Conditional"],
+        ["Reporting forms", "Life-sciences Reporting Summary and ML checklist", "Completed ML PDF + Reporting Summary response draft", "Conditional"],
         ["Author declarations", "Authors, contributions, interests, funding", "Sole-author fields completed; ORCID/funding confirmation pending", "Conditional"],
     ]
     add_table(doc, ["Item", "Instruction", "Package", "Status"], rows, [1800, 3100, 2760, 1700], font_size=8.0)
@@ -1363,11 +1377,12 @@ def build_submission_checklist() -> None:
     add_h1(doc, "Complete in this package")
     for item in [
         "Journal-length Article in Word with five figures and one main table",
-        "Single Supplementary Information file in Word and planned PDF",
+        "Single Supplementary Information file in Word and submission PDF",
         "All 28 retrieved source figures represented in the manuscript/supplement and archived separately",
         "All 31 original result tables supplied as labelled CSV source data",
         "Cover letter, title-page/declaration template and standalone Main Table 1",
         "Nature Reporting Summary and Machine Learning Checklist response drafts",
+        "Completed official Nature PDFs: Reporting Summary smart form and Machine Learning Checklist v1.1",
         "Reproducibility code and tests archive",
         "Numerical, figure-inventory and manuscript-structure audit",
     ]:
@@ -1380,6 +1395,8 @@ def build_submission_checklist() -> None:
         f"Public GitHub reproducibility repository created: {REPOSITORY_URL}",
         "Modal workspace, container and declared compute resources documented",
         "Originality, author approval and exclusive-submission declarations completed",
+        "Reporting Summary responses transferred into Nature's official smart form: Nature_Forms/Nature_Portfolio_Reporting_Summary_COMPLETED.pdf",
+        "Machine Learning Checklist v1.1 completed: Nature_Forms/Nature_Machine_Learning_Checklist_COMPLETED.pdf",
     ]:
         add_bullet(doc, item)
     add_h1(doc, "Remaining actions")
@@ -1387,7 +1404,7 @@ def build_submission_checklist() -> None:
         "Confirm the correct ORCID identifier because public records conflict",
         "Confirm that no specific external funding supported this study",
         "Authorize Zenodo archiving, mint a DOI and insert the DOI throughout the package",
-        "Transfer response drafts into Nature's official smart PDFs using Adobe Reader",
+        "Open both completed Nature PDFs in Adobe Acrobat or Reader to review and sign them; the Reporting Summary is a LiveCycle form that only Adobe renders, so other PDF viewers will show its placeholder page",
         "Supply a telephone number directly in the submission system if the journal requires it",
     ]:
         add_bullet(doc, item)
@@ -1412,9 +1429,41 @@ def download_forms() -> None:
         "Nature_Portfolio_Reporting_Summary_Reference.pdf": "https://www.nature.com/documents/nr-reporting-summary-flat.pdf",
     }
     for filename, url in urls.items():
+        target = FORMS_OUT / filename
+        if target.exists():
+            continue
         response = requests.get(url, timeout=60)
         response.raise_for_status()
-        (FORMS_OUT / filename).write_bytes(response.content)
+        target.write_bytes(response.content)
+
+
+SOFFICE = Path("C:/Program Files/LibreOffice/program/soffice.exe")
+PDF_EXPORTS = ("02_NMI_Supplementary_Information", "05_Nature_Reporting_Summary_Responses", "06_Nature_Machine_Learning_Checklist_Responses")
+
+
+def export_pdfs() -> None:
+    """Render the documents that Nature wants as PDF alongside the Word originals."""
+    if not SOFFICE.exists():
+        raise FileNotFoundError(f"LibreOffice is required to export submission PDFs: {SOFFICE}")
+    for stem in PDF_EXPORTS:
+        source = OUT / f"{stem}.docx"
+        subprocess.run(
+            [str(SOFFICE), "--headless", "--convert-to", "pdf", "--outdir", str(OUT), str(source)],
+            check=True,
+            capture_output=True,
+        )
+        target = OUT / f"{stem}.pdf"
+        if not target.exists() or target.stat().st_mtime < source.stat().st_mtime:
+            raise RuntimeError(f"PDF export did not refresh {target}")
+
+
+def fill_official_forms() -> None:
+    """Populate Nature's official ML checklist (AcroForm) and Reporting Summary (XFA)."""
+    import fill_nature_ml_checklist
+    import fill_nature_reporting_summary
+
+    fill_nature_ml_checklist.main()
+    fill_nature_reporting_summary.main()
 
 
 def archive_source_data() -> None:
@@ -1462,6 +1511,8 @@ def archive_code() -> None:
         ROOT / "run_observability_benchmark.py",
         ROOT / "build_nmi_submission_package.py",
         ROOT / "build_manuscript_package.py",
+        ROOT / "fill_nature_ml_checklist.py",
+        ROOT / "fill_nature_reporting_summary.py",
         ROOT / "MODAL_RUNBOOK.md",
     ]
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
@@ -1520,9 +1571,11 @@ def main() -> None:
     build_submission_checklist()
     build_standalone_table()
     download_forms()
+    fill_official_forms()
     archive_source_data()
     archive_source_figures()
     archive_code()
+    export_pdfs()
     build_machine_readable_claims()
     build_manifest()
     print(json.dumps({

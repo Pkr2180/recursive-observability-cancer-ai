@@ -21,7 +21,10 @@ claims are included under `final_results/`.
 - `modal_app.py`: Modal entry points for public-data acquisition, harmonisation, modelling,
   validation, and reporting.
 - `MODAL_RUNBOOK.md`: remote execution sequence and volume layout.
-- `tests/`: automated unit and integration tests.
+- `tests/`: automated unit and integration tests (`python -m pytest`, 21 tests).
+- `build_nmi_submission_package.py`: rebuild the complete journal submission package,
+  including `fill_nature_ml_checklist.py` (Nature Machine Learning Checklist, AcroForm) and
+  `fill_nature_reporting_summary.py` (Nature Portfolio Reporting Summary, XFA smart form).
 - `final_results/`: compact tables, figures, manifests, and fitted secondary-analysis assets.
 
 ## Citation
